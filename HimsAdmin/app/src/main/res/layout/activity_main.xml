@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <Button
+            android:id="@+id/btn_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@null"
+            android:drawablePadding="18dp"
+            android:drawableRight="@drawable/down"
+            android:fontFamily="sans"
+            android:gravity="center"
+            android:text="All"
+            android:textColor="#fff"
+            android:textSize="17sp" />
+    </android.support.v7.widget.Toolbar>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:background="?attr/colorPrimary"
+        android:layout_below="@+id/toolbar"
+        android:layout_height="48dp"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabLayout" />
+
+    <ImageButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@null"
+        android:src="@drawable/write_button"
+         />
+
+    <android.support.v7.widget.CardView
+        android:layout_marginLeft="12dp"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="#fff">
+
+        <com.dodotdo.mycustomview.view.recyclerview.MyRecyclerView
+            android:visibility="gone"
+            android:id="@+id/actionTitleRecyclerView"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

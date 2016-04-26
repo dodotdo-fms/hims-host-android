@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_bg" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/hims_main" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="119dp"
+        android:gravity="center"
+        android:text="Hotel Intelligent Management System"
+        android:textColor="#cdd3e6"
+        android:textSize="13sp" />
+
+    <RelativeLayout
+        android:id="@+id/transitionView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.dodotdo.mycustomview.view.CancelAbleEditText xmlns:currentView="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="235dp"
+            currentView:alpha="0.5"
+            currentView:editorBackground="@drawable/r7_borederd0d0d0_backf9f9f9"
+            currentView:textHint="E-mail" />
+
+        <com.dodotdo.mycustomview.view.CancelAbleEditText xmlns:currentView="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tv_password"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="289dp"
+            currentView:alpha="0.5"
+            currentView:editorBackground="@drawable/r7_borederd0d0d0_backf9f9f9"
+            currentView:textHint="Password"
+            currentView:textInput="password" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="344dp">
+
+            <Button
+                android:id="@+id/view_login"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/btn_radius_transparent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Login"
+                android:textColor="#fff"
+                android:textSize="17sp" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

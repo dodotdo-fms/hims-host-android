@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/contentView"
+    tools:context="com.dodotdo.himsadmin.activity.RequirementSendActivity">
+    <include layout="@layout/header" android:id="@+id/header"/>
+    <RelativeLayout
+        android:background="#f9f9f9"
+        android:layout_width="match_parent"
+        android:layout_height="53dp">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            android:textColor="#9b9b9b"
+            android:id="@+id/tv_selectedPerson"
+            android:paddingLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add_button"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="26dp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#9b9b9b"
+        />
+    <EditText
+        android:id="@+id/edt_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textColor="#323946"
+        android:textColorHint="#d0d0d0"
+        android:hint="Your Message"
+        android:padding="12dp"
+        android:background="@null"
+        />
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CancelAbleEditText">
+        <attr name="textHint" format="string" />
+        <attr name="editorBackground" format="reference"/>
+        <attr name="textInput" format="string"/>
+        <attr name="alpha" format="float"/>
+    </declare-styleable>
+    <declare-styleable name="CancelAbleImageEditText">
+        <attr name="src" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="HorizontalSlidingButtonView">
+        <attr name="leftSrc" format="reference"/>
+        <attr name="centerSrc" format="reference"/>
+        <attr name="rightSrc" format="reference"/>
+    </declare-styleable>
+</resources>

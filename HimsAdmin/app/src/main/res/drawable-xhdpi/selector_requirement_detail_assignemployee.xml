@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"  android:drawable="@drawable/background_radius7_borderd0d0d0_fill323946" android:color="@color/c9b9b9b"/>
+    <item android:state_pressed="false" android:state_enabled="false" android:drawable="@drawable/background_radius7_bordercacaca_filld0d0d0" android:color="@color/cb1b8cd"/>
+    <item android:state_pressed="false" android:drawable="@drawable/background_radius7_borderd0d0d0_fill19a1d1" android:color="@color/white"/>
+</selector>

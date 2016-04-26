@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="87dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="14dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_marginRight="7dp"
+            android:id="@+id/leftBar"
+            android:layout_width="9dp"
+            android:src="@drawable/bar_requirement_green"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_toRightOf="@+id/leftBar"
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:textSize="26sp"
+            android:textColor="#323946"
+            android:text="ss"
+            />
+        <TextView
+            android:layout_toRightOf="@+id/leftBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textSize="18sp"
+            android:textColor="#323946"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/name"
+            />
+
+        <TextView
+            android:fontFamily="sans"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="status"
+            android:drawableRight="@drawable/left"
+            android:id="@+id/status"
+            android:drawablePadding="12dp"
+            android:textSize="26sp"
+            android:layout_alignParentRight="true"
+            />
+        <TextView
+            android:fontFamily="sans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeText"
+            android:textSize="13sp"
+            android:textColor="#9b9b9b"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="sss"
+            />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
