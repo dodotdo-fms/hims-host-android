@@ -31,7 +31,7 @@ public class TimeUtil {
         } catch (Exception e) {
         }
         if (timeDiff < MIN_TO_MILLISECOND * RECENT_MIN) {
-            return "방금";
+            return "just now";
         }
         if (timeDiff < HOUR_TO_MILLISECOND) {
             return getMinDiff(timeDiff);
@@ -40,7 +40,7 @@ public class TimeUtil {
             return getHourDiff(timeDiff);
         }
         if (timeDiff < DAY_TO_MILLISECOND * 2) {
-            return "어제";
+            return "yesterday";
         }
         return getShortDate(targetUtcTime);
     }
@@ -53,11 +53,11 @@ public class TimeUtil {
     }
 
     private static String getHourDiff(long timeDiff) {
-        return String.format("%d시간 전", (int) (timeDiff / HOUR_TO_MILLISECOND));
+        return String.format("%dhour ago", (int) (timeDiff / HOUR_TO_MILLISECOND));
     }
 
     private static String getMinDiff(long timeDiff) {
-        return String.format("%d분 전", (int) (timeDiff / MIN_TO_MILLISECOND));
+        return String.format("%dmin ago", (int) (timeDiff / MIN_TO_MILLISECOND));
     }
 
     public static String getTimeString(long time, String format) {

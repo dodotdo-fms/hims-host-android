@@ -65,4 +65,11 @@ public class ServerQuery {
         call.enqueue(callback);
     }
 
+    public static void unAssignEmployeeToClean(retrofit.Callback callback,String userId,String roomNumber){
+        ArrayList<String > roomNumbers = new ArrayList<>();
+        roomNumbers.add(roomNumber);
+        Call<Results<String>> call = ServiceGenerator.createService(ServerAPI.class).deleteAssign(userId,new RequestAssignEmployeeToClean(roomNumbers));
+        call.enqueue(callback);
+    }
+
 }

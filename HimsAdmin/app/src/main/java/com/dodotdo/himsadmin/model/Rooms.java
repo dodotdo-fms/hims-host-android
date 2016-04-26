@@ -39,6 +39,10 @@ public class Rooms {
         floorMap = new HashMap<>();
     }
 
+    public Room getRoom(String roomNumber){
+        return maps.get(roomNumber);
+    }
+
     public void setData(List<Room> data) {
         clear();
         for (Room item : data) {
@@ -108,7 +112,11 @@ public class Rooms {
     }
 
     public void changeCleanInRoom(Clean clean) {
-        maps.get(clean.getRoomNumber()).clean.add(0, clean);
+        Room room =  maps.get(clean.getRoomNumber());
+        if(room.clean == null){
+            room.clean = new ArrayList<Clean>();
+        }
+        room.clean.add(0, clean);
     }
 
 

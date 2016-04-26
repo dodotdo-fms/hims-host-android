@@ -14,11 +14,17 @@ import com.dodotdo.himsadmin.serverinterface.response.GetLoginResponse;
 import com.dodotdo.himsadmin.serverinterface.response.GetRequirementsResponse;
 import com.dodotdo.himsadmin.serverinterface.response.Results;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.util.List;
 
 import retrofit.Call;
 import retrofit.http.Body;
+import retrofit.http.DELETE;
 import retrofit.http.GET;
+import retrofit.http.HTTP;
 import retrofit.http.POST;
 import retrofit.http.PUT;
 import retrofit.http.Path;
@@ -31,6 +37,7 @@ public interface ServerAPI {
 //    @GET("/api/users")
 //    Call<GetUsersResponse> getUsers();
 //
+
     @POST("/api/v2/auth/employee")
     Call<GetLoginResponse> goLogin(@Body LoginRequest loginRequest);
 
@@ -56,6 +63,8 @@ public interface ServerAPI {
 
     @POST("/api/v2/employees/{userid}/cleans")
     Call<Results<List<Clean>>> assignEmployeeToClean(@Path("userid")String userId,@Body RequestAssignEmployeeToClean body);
+    @HTTP(method = "DELETE", path = "api/v2/employees/{userid}/cleans", hasBody = true)
+    Call<Results<String>> deleteAssign(@Path("userid")String userId,@Body RequestAssignEmployeeToClean body);
 //
 //    @GET("/api/users/logout")
 //    Call<LogoutResponse> goLogout();

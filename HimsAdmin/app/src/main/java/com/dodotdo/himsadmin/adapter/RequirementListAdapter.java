@@ -13,10 +13,12 @@ import com.bumptech.glide.Glide;
 import com.dodotdo.himsadmin.R;
 import com.dodotdo.himsadmin.activity.RequirementDetailActivity;
 import com.dodotdo.himsadmin.model.Requirement;
+import com.dodotdo.himsadmin.utill.TimeUtil;
 import com.dodotdo.mycustomview.view.recyclerview.MyRecyclerView;
 import com.dodotdo.mycustomview.view.recyclerview.ViewHolderFactory;
 import com.google.gson.Gson;
 
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -162,7 +164,8 @@ public class RequirementListAdapter extends RecyclerView.Adapter<MyRecyclerView.
         public void update(final Requirement data) {
             name.setText(data.getSenderEmployee().getLastName());
             date.setText(data.getRegisterTimestamp());
-            tiemText.setText("sss");
+            date.setText(TimeUtil.getTimeString(new Date(data.getRegisterTimestamp()),"MMM dd, yyyy"));
+            tiemText.setText(TimeUtil.getTimeDiff(new Date(data.getRegisterTimestamp()).getTime()));
             status.setText(data.getStatus());
             title.setText(data.getContentEnglish());
             if(data.getStatus().equals("WIP")){

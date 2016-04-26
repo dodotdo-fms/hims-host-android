@@ -143,12 +143,10 @@ public class RoomAssignListAdapter extends RecyclerView.Adapter<MyRecyclerView.V
         }
 
         public void update(final CheckRoomData data) {
-
             if(data.room.getClean() != null && data.room.getClean().size() != 0){
                 check.setVisibility(View.INVISIBLE);
             }else{
                 check.setVisibility(View.VISIBLE);
-
             }
             check.setChecked(data.check);
             name.setText(data.room.getRoomNumber());

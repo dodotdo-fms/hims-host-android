@@ -1,159 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/contentView"
     tools:context="com.dodotdo.himsadmin.activity.RoomDetailActivity">
 
-    <include layout="@layout/header"/>
+    <include layout="@layout/header" />
+
     <ImageView
         android:id="@+id/bar"
-        android:src="@drawable/bar_requirement_gray"
         android:layout_width="match_parent"
-        android:layout_height="12dp" />
+        android:layout_height="12dp"
+        android:src="@drawable/bar_requirement_gray" />
+
     <TextView
-        android:fontFamily="sans-serif"
+        android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="33sp"
-        android:textColor="#323946"
-        android:layout_marginTop="12dp"
-        android:id="@+id/number"
         android:layout_marginLeft="23dp"
-        />
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif"
+        android:textColor="#323946"
+        android:textSize="33sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="46dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:background="#979797"
-        />
+        android:layout_marginTop="46dp"
+        android:background="#979797" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_marginTop="13dp"
-        android:textColor="#73798a"
-        android:text="FO Status"
         android:layout_marginLeft="23dp"
+        android:layout_marginTop="13dp"
         android:fontFamily="sans"
-        />
+        android:text="FO Status"
+        android:textColor="#73798a"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:layout_marginLeft="23dp"
         android:layout_marginTop="7dp"
         android:fontFamily="sans"
-        android:layout_marginLeft="23dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="#979797"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_marginTop="13dp"
-        android:textColor="#73798a"
-        android:text="Housekeeper"
-        android:layout_marginLeft="23dp"
-        android:fontFamily="sans"
-        />
-    <TextView
-        android:id="@+id/housekeeper_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="7dp"
-        android:fontFamily="sans-serif"
-        android:layout_marginLeft="23dp"
+        android:textSize="20sp" />
 
-        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:background="#979797"
-        />
+        android:layout_marginTop="10dp"
+        android:background="#979797" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_marginTop="13dp"
-        android:textColor="#73798a"
-        android:text="Inspection"
         android:layout_marginLeft="23dp"
+        android:layout_marginTop="13dp"
         android:fontFamily="sans"
-        />
+        android:text="Housekeeper"
+        android:textColor="#73798a"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/housekeeper_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif"
+            android:layout_centerVertical="true"
+            android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/btn_unAssign"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cancel_icon_room"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="26dp"
+            />
+        <Button
+            android:id="@+id/btn_assign"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:text="Assign"
+            android:textSize="13sp"
+            android:background="@drawable/selector_requirement_detail_assignemployee"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="26dp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:background="#979797" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="sans"
+        android:text="Inspection"
+        android:textColor="#73798a"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/inspection_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:layout_marginLeft="23dp"
         android:layout_marginTop="7dp"
         android:fontFamily="sans-serif"
-        android:layout_marginLeft="23dp"
+        android:textSize="20sp"
 
         />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:background="#979797"
-        />
+        android:layout_marginTop="10dp"
+        android:background="#979797" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_marginTop="13dp"
-        android:textColor="#73798a"
-        android:text="Supervisor"
         android:layout_marginLeft="23dp"
+        android:layout_marginTop="13dp"
         android:fontFamily="sans"
-        />
+        android:text="Supervisor"
+        android:textColor="#73798a"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/supervisor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:layout_marginLeft="23dp"
         android:layout_marginTop="7dp"
         android:fontFamily="sans-serif"
-        android:layout_marginLeft="23dp"
-        />
+        android:textSize="20sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:background="#979797"
-        />
+        android:layout_marginTop="10dp"
+        android:background="#979797" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <Button
-        android:id="@+id/btn_inspection"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textSize="13sp"
-        android:background="@drawable/selector_requirement_detail_imonit"
-        android:text="Insepction"
-        android:layout_marginLeft="38dp"
-        android:layout_marginRight="38dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="35dp"
-        />
+
+        <Button
+            android:id="@+id/btn_inspection"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="35dp"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="38dp"
+            android:background="@drawable/selector_requirement_detail_imonit"
+            android:text="Insepction"
+            android:textSize="13sp" />
     </FrameLayout>
 </LinearLayout>

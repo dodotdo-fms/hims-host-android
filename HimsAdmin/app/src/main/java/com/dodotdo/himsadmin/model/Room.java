@@ -38,4 +38,8 @@ public class Room {
     public List<Clean> getClean() {
         return clean;
     }
+
+    public void removeClean() {
+        this.clean = null;
+    }
 }

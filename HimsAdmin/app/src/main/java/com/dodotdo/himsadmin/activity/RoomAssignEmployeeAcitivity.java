@@ -67,7 +67,12 @@ public class RoomAssignEmployeeAcitivity extends AppCompatActivity {
                     adapter.setListener(new RoomAssignEmployeeListAdapter.OnRoomAssignEmployeeListAdpterListener() {
                         @Override
                         public void goAssignRoom(Employee employee) {
-                            startActivityForResult(new Intent(getApplicationContext(),RoomAssignActivity.class).putExtra("id",employee.getUserid()),1);
+                            if(getIntent().getAction() != null && getIntent().getAction().equals("fromRoomDetail")){
+                                setResult(RESULT_OK,getIntent().putExtra("id", employee.getUserid()));
+                                finish();
+                            }else {
+                                startActivityForResult(new Intent(getApplicationContext(), RoomAssignActivity.class).putExtra("id", employee.getUserid()), 1);
+                            }
                         }
                     });
                 }
@@ -96,29 +101,32 @@ public class RoomAssignEmployeeAcitivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1){
             if(resultCode == RESULT_OK){
-                ArrayList<String> roomNumbers = data.getStringArrayListExtra("data");
-                box.showLoadingLayout();
-                ServerQuery.assignEmployeeToClean(new Callback() {
-                    @Override
-                    public void onResponse(Response response, Retrofit retrofit) {
-                        if(response.isSuccess()){
-                            List<Clean> cleans = ((List<Clean>)((Results<List<Clean>>)response.body()).getResult());
-                            for(Clean clean : cleans) {
-                                Rooms.getInstance().changeCleanInRoom(clean);
-                            }
-                            finish();
-                        }
-                        box.hideAll();
-                    }
-
-                    @Override
-                    public void onFailure(Throwable t) {
-                        Log.e("error",t.toString());
-                        box.hideAll();
-                    }
-                },data.getStringExtra("id"), roomNumbers);
+                goAssign(data.getStringArrayListExtra("data"),data.getStringExtra("id"));
             }
         }
+    }
+
+    private void goAssign( ArrayList<String> roomNumbers,String employeeId) {
+        box.showLoadingLayout();
+        ServerQuery.assignEmployeeToClean(new Callback() {
+            @Override
+            public void onResponse(Response response, Retrofit retrofit) {
+                if(response.isSuccess()){
+                    List<Clean> cleans = ((List<Clean>)((Results<List<Clean>>)response.body()).getResult());
+                    for(Clean clean : cleans) {
+                        Rooms.getInstance().changeCleanInRoom(clean);
+                    }
+                    finish();
+                }
+                box.hideAll();
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.e("error",t.toString());
+                box.hideAll();
+            }
+        },employeeId, roomNumbers);
     }
 
     @Override

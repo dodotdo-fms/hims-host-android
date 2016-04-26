@@ -21,6 +21,7 @@ import com.dodotdo.himsadmin.model.Requirement;
 import com.dodotdo.himsadmin.model.Room;
 import com.dodotdo.himsadmin.serverinterface.ServerQuery;
 import com.dodotdo.himsadmin.serverinterface.response.Results;
+import com.dodotdo.himsadmin.utill.TimeUtil;
 import com.dodotdo.mycustomview.view.ScrollPreventViewPager;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -28,6 +29,7 @@ import com.google.gson.reflect.TypeToken;
 import org.w3c.dom.Text;
 
 import java.lang.reflect.Type;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -99,22 +101,22 @@ public class RequirementDetailActivity extends AppCompatActivity {
         if(data.getStatus().equals("DONE")){
             mTv_name.setText(data.getDoneEmployee().getLastName());
             mTv_state.setBackgroundColor(getResources().getColor(R.color.bar_green));
-            mTv_date.setText(data.getDoneTimestamp());
+            mTv_date.setText(TimeUtil.getTimeString(new Date(data.getDoneTimestamp()),"MMM dd, yyyy | ")+TimeUtil.getTimeDiff(new Date(data.getDoneTimestamp()).getTime()));
             mBtn_onit.setVisibility(View.INVISIBLE);
             mBtn_assignList.setVisibility(View.GONE);
             mBtn_assign.setEnabled(false);
         }else if(data.getStatus().equals("WIP")){
             mTv_name.setText(data.getWipEmployee().getLastName());
             mTv_state.setBackgroundColor(getResources().getColor(R.color.bar_red));
-            mTv_date.setText(data.getWipTimestamp());
+            mTv_date.setText(TimeUtil.getTimeString(new Date(data.getWipTimestamp()),"MMM dd, yyyy | ")+TimeUtil.getTimeDiff(new Date(data.getWipTimestamp()).getTime()));
             mBtn_onit.setText("DONE");
             mBtn_onit.setVisibility(View.VISIBLE);
             mBtn_assignList.setVisibility(View.GONE);
             mBtn_assign.setEnabled(false);
         }else{
-            mTv_name.setText(data.getAssignedEmployeeList().size() + "Employee");
+            mTv_name.setText(data.getAssignedEmployeeList().size() + " Employee");
             mTv_state.setBackgroundColor(getResources().getColor(R.color.bar_gray));
-            mTv_date.setText(data.getRegisterTimestamp());
+            mTv_date.setText(TimeUtil.getTimeString(new Date(data.getRegisterTimestamp()),"MMM dd, yyyy | ")+TimeUtil.getTimeDiff(new Date(data.getRegisterTimestamp()).getTime()));
             mBtn_onit.setVisibility(View.VISIBLE);
             if(data.getAssignedEmployeeList().size() != 0){
                 mBtn_assignList.setVisibility(View.VISIBLE);

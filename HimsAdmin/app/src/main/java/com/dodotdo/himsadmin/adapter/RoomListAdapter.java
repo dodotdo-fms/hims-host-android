@@ -15,9 +15,11 @@ import com.dodotdo.himsadmin.activity.RoomDetailActivity;
 import com.dodotdo.himsadmin.model.Requirement;
 import com.dodotdo.himsadmin.model.Room;
 import com.dodotdo.himsadmin.model.Rooms;
+import com.dodotdo.himsadmin.utill.TimeUtil;
 import com.dodotdo.mycustomview.view.recyclerview.MyRecyclerView;
 import com.google.gson.Gson;
 
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -126,21 +128,27 @@ public class RoomListAdapter extends RecyclerView.Adapter<MyRecyclerView.ViewHol
             number.setText(data.getRoomNumber());
             if(data.getReservation() != null) {
                 name.setText(data.getReservation().get(0).getGuest().getLastName());
+            }else{
+                name.setText("");
             }
             tiemText.setText(data.getRoomStatus().get(0).getTimestamp());
             status.setText(data.getRoomStatus().get(0).getFOStatus());
             if(data.getRoomStatus().get(0).getFOStatus().equals("OD") || data.getRoomStatus().get(0).getFOStatus().equals("VD") || data.getRoomStatus().get(0).getFOStatus().equals("DND")){
                 bar.setImageResource(R.drawable.bar_requirement_red);
                 status.setTextColor(context.getResources().getColor(R.color.bar_red));
+                tiemText.setText("Not yet");
+                tiemText.setTextColor(context.getResources().getColor(R.color.bar_red));
             }else{
                 bar.setImageResource(R.drawable.bar_room_blue);
                 status.setTextColor(context.getResources().getColor(R.color.bar_blue));
+                tiemText.setText(TimeUtil.getTimeString(new Date(data.getRoomStatus().get(0).getTimestamp()),"hh:mm"));
+                tiemText.setTextColor(context.getResources().getColor(R.color.c9b9b9b));
             }
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    v.getContext().startActivity(new Intent(v.getContext(), RoomDetailActivity.class).putExtra("data",new Gson().toJson(data)));
+                    v.getContext().startActivity(new Intent(v.getContext(), RoomDetailActivity.class).putExtra("roomNumber",data.getRoomNumber()));
                 }
             });
         }
