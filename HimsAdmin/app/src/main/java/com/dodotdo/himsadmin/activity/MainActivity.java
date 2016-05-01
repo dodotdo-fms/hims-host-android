@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements OnActionTitleList
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
+                viewPager.setCurrentItem(position);
                 actionTitleRecyclerView.setVisibility(View.GONE);
                 mBtn_title.setText(MainTab.values()[position].fragment.getActionTitle());
                 MainTab.values()[position].fragment.setActionTitleClickListener(MainActivity.this);
